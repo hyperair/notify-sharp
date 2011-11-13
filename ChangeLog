@@ -1,3 +1,58 @@
+2009-03-05  Sebastian Dröge  <sebastian.droege@collabora.co.uk>
+
+	* src/Notification.cs:
+	  Patch by Cody Russell  <bratsche {at} gnome.org>:
+	  Check if Capabilities are null before using them.
+
+2009-03-05  Sebastian Dröge  <sebastian.droege@collabora.co.uk>
+
+	* src/Notification.cs:
+	  Patch by Cody Russell  <bratsche {at} gnome.org>:
+	  When adding a new action, first check that the notification
+	  daemon supports actions. (BGO #571177)
+
+2008-03-20  Sebastian Dröge  <slomo@circular-chaos.org>
+
+	* src/Notification.cs:
+	  Add a CloseHandler delegate for the Close event as it
+	  doesn't get EventArgs but CloseArgs.
+
+	* docs/en/Notifications/CloseHandler.xml:
+	* docs/en/index.xml:
+	  Update docs.
+
+2008-03-20  Sebastian Dröge  <slomo@circular-chaos.org>
+
+	* src/Global.cs:
+	* src/Notification.cs:
+	  Use uint as internal type for the close reason.
+
+2008-03-20  Sebastian Dröge  <slomo@circular-chaos.org>
+
+	* configure.ac:
+	  Require GTK# >= 2.10.1 for Gtk.StatusIcon.
+
+	* src/Global.cs:
+	  Update to notification-daemon DBus interface change.
+
+	* src/Notification.cs:
+	  Update for notification-daemon DBus interface change and
+	  add a reason to the Close event.
+	  
+	  Allow attaching to a Gtk.StatusIcon.
+
+	  Add properties for the Id, StatusIcon and AttachWidget.
+
+	* docs/en/Notifications/ActionArgs.xml:
+	* docs/en/Notifications/CloseArgs.xml:
+	* docs/en/Notifications/CloseReason.xml:
+	* docs/en/Notifications/Global.xml:
+	* docs/en/Notifications/Notification.xml:
+	* docs/en/Notifications/ServerInformation.xml:
+	* docs/en/Notifications/Urgency.xml:
+	* docs/en/index.xml:
+	  Update docs.
+
 2007-02-06  Sebastian Dröge  <slomo@circular-chaos.org>
 	* First public release 0.4.0.0
 

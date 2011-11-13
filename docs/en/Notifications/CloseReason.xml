@@ -1,0 +1,40 @@
+<Type Name="CloseReason" FullName="Notifications.CloseReason">
+  <TypeSignature Language="C#" Value="public enum CloseReason" />
+  <AssemblyInfo>
+    <AssemblyName>notify-sharp</AssemblyName>
+    <AssemblyVersion>0.4.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    <Member MemberName="API">
+      <MemberSignature Language="C#" Value="API" />
+      <MemberType>Field</MemberType>
+      <ReturnValue><ReturnType>Notifications.CloseReason</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Expired">
+      <MemberSignature Language="C#" Value="Expired" />
+      <MemberType>Field</MemberType>
+      <ReturnValue><ReturnType>Notifications.CloseReason</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Reserved">
+      <MemberSignature Language="C#" Value="Reserved" />
+      <MemberType>Field</MemberType>
+      <ReturnValue><ReturnType>Notifications.CloseReason</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="User">
+      <MemberSignature Language="C#" Value="User" />
+      <MemberType>Field</MemberType>
+      <ReturnValue><ReturnType>Notifications.CloseReason</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member>
+  </Members>
+</Type>

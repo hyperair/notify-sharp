@@ -50,7 +50,19 @@ namespace Notifications {
 		}
 	}
 
+	public class CloseArgs : EventArgs {
+		private CloseReason reason;
+		public CloseReason Reason {
+			get { return reason; }
+		}
+
+		public CloseArgs (CloseReason reason) {
+			this.reason = reason;
+		}
+	}
+
 	public delegate void ActionHandler (object o, ActionArgs args);
+	public delegate void CloseHandler (object o, CloseArgs args);
 	
 	public class Notification {
 		private struct IconData {
@@ -83,6 +95,8 @@ namespace Notifications {
 		private int timeout = -1;
 		private string summary = String.Empty, body = String.Empty;
 		private string icon = String.Empty;
+		private Gtk.Widget attach_widget = null;
+		private Gtk.StatusIcon status_icon = null;
 		private IDictionary <string, ActionTuple> action_map = new Dictionary<string, ActionTuple> ();
 		private IDictionary <string, object> hints  = new Dictionary<string, object> ();
 
@@ -121,6 +135,15 @@ namespace Notifications {
 		public Notification (string summary, string body, string icon, Gtk.Widget widget) : this (summary, body, icon) {
 			AttachToWidget (widget);
 		}
+
+		public Notification (string summary, string body, Pixbuf icon, Gtk.StatusIcon status_icon) : this (summary, body, icon) {
+			AttachToStatusIcon (status_icon);
+		}
+		
+		public Notification (string summary, string body, string icon, Gtk.StatusIcon status_icon) : this (summary, body, icon) {
+			AttachToStatusIcon (status_icon);
+		}
+
 
 		public string Summary {
 			set {
@@ -189,6 +212,30 @@ namespace Notifications {
 			}
 		}
 
+		public uint Id {
+			get {
+				return id;
+			}
+		}
+
+		public Gtk.Widget AttachWidget {
+			get {
+				return attach_widget;
+			}
+			set {
+				AttachToWidget (value);
+			}
+		}
+
+		public Gtk.StatusIcon StatusIcon {
+			get {
+				return status_icon;
+			}
+			set {
+				AttachToStatusIcon (value);
+			}
+		}
+
 		private void SetPixbufHint (Pixbuf pixbuf) {
 			IconData icon_data = new IconData ();
 			icon_data.Width = pixbuf.Width;
@@ -220,6 +267,27 @@ namespace Notifications {
 			y += widget.Allocation.Height / 2;
 
 			SetGeometryHints (widget.Screen, x, y);
+			attach_widget = widget;
+			status_icon = null;
+		}
+
+		public void AttachToStatusIcon (Gtk.StatusIcon status_icon) {
+			Gdk.Screen screen;
+			Gdk.Rectangle rect;
+			Orientation orientation;
+			int x, y;
+
+			if (!status_icon.GetGeometry (out screen, out rect, out orientation)) {
+				return;
+			}
+
+			x = rect.X + rect.Width / 2;
+			y = rect.Y + rect.Height / 2;
+
+			SetGeometryHints (screen, x, y);
+
+			this.status_icon = status_icon;
+			attach_widget = null;
 		}
 
 		public void SetGeometryHints (Screen screen, int x, int y) {
@@ -262,21 +330,24 @@ namespace Notifications {
 			shown = false;
 		}
 
-		private void OnClosed (uint id) {
+		private void OnClosed (uint id, uint reason) {
 			if (this.id == id) {
 				this.id = 0;
 				shown = false;
 				if (Closed != null) {
-					Closed (this, new EventArgs ());
+					Closed (this, new CloseArgs ((CloseReason) reason));
 				}
 			}
 		}
 
 		public void AddAction (string action, string label, ActionHandler handler) {
-			lock (action_map) {
-				action_map[action] = new ActionTuple (label, handler);
+			if (Notifications.Global.Capabilities != null &&
+			    Array.IndexOf (Notifications.Global.Capabilities, "actions") > -1) {
+				lock (action_map) {
+					action_map[action] = new ActionTuple (label, handler);
+				}
+				Update ();
 			}
-			Update ();
 		}
 
 		public void RemoveAction (string action) {

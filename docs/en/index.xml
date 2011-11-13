@@ -21,11 +21,14 @@
   <Copyright>To be added.</Copyright>
   <Types>
     <Namespace Name="Notifications">
-      <Type Name="ServerInformation" />
-      <Type Name="Global" />
       <Type Name="ActionArgs" />
-      <Type Name="Notification" />
       <Type Name="ActionHandler" />
+      <Type Name="CloseArgs" />
+      <Type Name="CloseHandler" />
+      <Type Name="CloseReason" />
+      <Type Name="Global" />
+      <Type Name="Notification" />
+      <Type Name="ServerInformation" />
       <Type Name="Urgency" />
     </Namespace>
   </Types>

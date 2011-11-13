@@ -40,7 +40,14 @@ namespace Notifications {
 		event ActionInvokedHandler ActionInvoked;
 	}
 
-	internal delegate void NotificationClosedHandler (uint id);
+	public enum CloseReason : uint {
+		Expired = 1,
+		User = 2,
+		API = 3,
+		Reserved = 4
+	}
+
+	internal delegate void NotificationClosedHandler (uint id, uint reason);
 	internal delegate void ActionInvokedHandler (uint id, string action);
 
 	public struct ServerInformation {
