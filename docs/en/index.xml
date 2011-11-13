@@ -1,0 +1,33 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="notify-sharp" Version="0.4.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCopyright("Copyright (c) 2006-2007 Sebastian Dröge")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyDescription("C# client library for notification-daemon")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyTitle("notify-sharp")</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="Notifications">
+      <Type Name="ServerInformation" />
+      <Type Name="Global" />
+      <Type Name="ActionArgs" />
+      <Type Name="Notification" />
+      <Type Name="ActionHandler" />
+      <Type Name="Urgency" />
+    </Namespace>
+  </Types>
+  <Title>notify-sharp</Title>
+</Overview>

@@ -1,0 +1,11 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+pkglibdir=${libdir}/mono/notify-sharp
+
+Name: notify-sharp
+Description: C# client library for notification-daemon
+Version: @VERSION@
+Requires: gtk-sharp-2.0
+Libs: -r:${pkglibdir}/notify-sharp.dll
+

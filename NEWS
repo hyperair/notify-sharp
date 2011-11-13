@@ -1,0 +1,5 @@
+=== 0.4.0.0 ===
+	This is the first public, installable release. Currently the complete
+	Desktop Notifications specification version 0.9[1] is implemented.
+	http://trac.galago-project.org/wiki/DesktopNotifications
+

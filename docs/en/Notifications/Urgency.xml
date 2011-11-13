@@ -1,0 +1,46 @@
+<Type Name="Urgency" FullName="Notifications.Urgency">
+  <TypeSignature Language="C#" Value="public enum Urgency" />
+  <AssemblyInfo>
+    <AssemblyName>notify-sharp</AssemblyName>
+    <AssemblyVersion>0.4.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Members>
+    <Member MemberName="Critical">
+      <MemberSignature Language="C#" Value="Critical" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>Notifications.Urgency</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Low">
+      <MemberSignature Language="C#" Value="Low" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>Notifications.Urgency</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Normal">
+      <MemberSignature Language="C#" Value="Normal" />
+      <MemberType>Field</MemberType>
+      <ReturnValue>
+        <ReturnType>Notifications.Urgency</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Type>
