@@ -28,7 +28,7 @@ using GLib;
 using Gdk;
 using Gtk;
 
-using NDesk.DBus;
+using DBus;
 using org.freedesktop;
 using org.freedesktop.DBus;
 

@@ -7,7 +7,7 @@ CSFLAGS = \
 LIBFLAGS = \
 	-r:Mono.Posix \
 	$(GTK_SHARP_LIBS) \
-	$(NDESK_DBUS_LIBS)
+	$(DBUS_SHARP_LIBS)
 
 CSFILES = \
 	$(srcdir)/Global.cs \
