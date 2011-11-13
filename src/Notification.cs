@@ -112,7 +112,12 @@ namespace Notifications {
 			nf.NotificationClosed += OnClosed;
 			nf.ActionInvoked += OnActionInvoked;
 
-			this.app_name = Assembly.GetCallingAssembly().GetName().Name;
+			Assembly app_asm = Assembly.GetEntryAssembly();
+
+			if (app_asm == null)
+			    app_asm = Assembly.GetCallingAssembly();
+
+			this.app_name = app_asm.GetName().Name;
 		}
 
 		public Notification (string summary, string body) : this () {
