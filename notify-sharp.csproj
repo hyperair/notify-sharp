@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="src\Global.cs" />
     <Compile Include="src\Notification.cs" />
+    <Compile Include="src\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\notify-sharp.dll.config" />
