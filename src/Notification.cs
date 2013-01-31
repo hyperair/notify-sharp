@@ -305,9 +305,15 @@ namespace Notifications {
 			if (shown && !updates_pending) {
 				updates_pending = true;
 				GLib.Timeout.Add (100, delegate {
-					if (updates_pending) {
-						Show ();
-						updates_pending = false;
+					try {
+						if (updates_pending) {
+							Show ();
+							updates_pending = false;
+						}
+					} catch (Exception ex) {
+						// do not throw an exception in a GTK+ callback as
+						// this will _crash_ the application
+						Console.WriteLine("Ignoring exception: {0}", ex);
 					}
 					return false;
 				});
