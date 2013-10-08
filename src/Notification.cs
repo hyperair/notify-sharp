@@ -260,7 +260,7 @@ namespace Notifications {
 		public void AttachToWidget (Gtk.Widget widget) {
 			int x, y;
 
-			widget.GdkWindow.GetOrigin (out x, out y);
+			widget.Window.GetOrigin (out x, out y);
 
 			if (widget.GetType() != typeof (Gtk.Window) || ! widget.GetType().IsSubclassOf(typeof (Gtk.Window))) {
 				x += widget.Allocation.X;
